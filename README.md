@@ -5,7 +5,7 @@
 
 ## 下載檔案
 
-1. 請先將檔案下載下來 <a href="https://github.com/shanghuyun/Shanghuyun-Production-side/releases/tag/%E6%AA%94%E6%A1%88" target="_blank">載點</a>
+1. 請先將檔案下載下來 [載點](https://github.com/shanghuyun/Shanghuyun-Production-side/releases/tag/%E6%AA%94%E6%A1%88)
 
 ## 部署到 PythonAnywhere
 
