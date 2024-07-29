@@ -38,7 +38,7 @@
 6. 點擊**Open Web tab**新增一個App
 
 ![](docs/images/新增app.png)
-![點選 Add a new web app](docs/images/addapp.png)
+![點選 Add a new web app](docs/images/addApp.png)
 ![點選 Next](docs/images/Next.png)
 ![點選 manualConfiguration](docs/images/manualConfiguration.png)
 ![點選 Python 3.10](docs/images/選擇3.10.png)
