@@ -1,0 +1,65 @@
+<!-- sensor_list.html -->
+{% extends "layouts/base.html" %}
+
+{% block title %} 感測器列表 {% endblock %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card  card-plain">
+          <div class="card-header">
+            <h4 class="card-title">感測器列表</h4>
+            <p class="category">在此查看所有感測器</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table tablesorter " id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>
+                      感測器名稱
+                    </th>
+                    <th>
+                      最新紀錄時間
+                    </th>
+                    <th>
+                      最新一筆數據
+                    </th>
+                    <th class="text-center">
+                      操作
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for sensor in sensors %}
+                  <tr>
+                    <td>
+                        {{ sensor.name }}
+                    </td>
+                    <td>
+                        {{ sensor.timestamp }}
+                    </td>
+                    <td>
+                        {{ sensor.data }}
+                    </td>
+                    <td class="text-center">
+                        <a href="{% url 'sensor_data_list' sensor.name %}">查看所有數據</a>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+{% block javascripts %}{% endblock javascripts %}

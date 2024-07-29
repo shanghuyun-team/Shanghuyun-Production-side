@@ -1,0 +1,13 @@
+Django
+asgiref
+autopep8
+dj-database-url
+gunicorn
+pycodestyle
+pytz
+sqlparse
+toml
+whitenoise
+django-environ
+pillow
+django-environ
