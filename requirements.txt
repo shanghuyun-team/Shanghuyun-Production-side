@@ -10,4 +10,3 @@ toml
 whitenoise
 django-environ
 pillow
-django-environ
