@@ -143,11 +143,19 @@ def pages(request):
             if request.method == 'POST' and "color" not in request.POST:
                 form = SensorForm(request.POST)
                 if form.is_valid():
-                    form.save()
-                    return HttpResponseRedirect(request.path + '?save_success=True')
+                    # 檢查是否有相同名稱的感測器
+                    sensor_name = form.cleaned_data['name']
+                    if Sensor.objects.filter(name=sensor_name).exists():
+                        form.add_error('name', '具有相同名稱的感測器已存在')
+                        context['has_errors'] = form.errors
+                    else:
+                        form.save()
+                        context['sensor_add_success'] = True
             else:
                 form = SensorForm()
             context['form'] = form
+            context['has_errors'] = form.errors
+
         elif load_template == "sensor_list.html":
             sensors = Sensor.objects.all()
             sensor_list = [{
@@ -292,13 +300,13 @@ def get_sensor_data_by_name(request, sensor_name, count):
     data = list(sensor_data.values('timestamp', 'data'))
     return JsonResponse(data, safe=False)
 
-def get_product_names(request):
-    product_names = list(Product.objects.values_list('product_name', flat=True))
-    return JsonResponse(product_names, safe=False)
+def get_product_ids(request):
+    product_ids = list(Product.objects.values_list('id', flat=True))
+    return JsonResponse(product_ids, safe=False)
 
-def get_product_details(request, product_name):
+def get_product_details(request, product_id):
     try:
-        product = Product.objects.get(product_name=product_name)
+        product = Product.objects.get(id=product_id)
         product_images = ProductImage.objects.filter(product=product)
         image_urls = [image.image.url for image in product_images]
         image_urls.insert(0, product.image.url)

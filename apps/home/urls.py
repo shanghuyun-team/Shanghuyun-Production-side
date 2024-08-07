@@ -20,9 +20,9 @@ urlpatterns = [
     #API介面
     path('api/get_counts/', views.get_counts, name='get_counts'),
     path('api/get_sensor_names/', views.get_sensor_names, name='get_sensor_names'),
-    path('api/get_sensor_data_by_name/<str:sensor_name>/<int:count>/', views.get_sensor_data_by_name, name='get_sensor_data_by_name'),
-    path('api/get_product_names/', views.get_product_names, name='get_product_names'),
-    path('api/get_product_details/<str:product_name>/', views.get_product_details, name='get_product_details'),
+    path('api/get_sensor_data_by_id/<str:sensor_name>/<int:count>/', views.get_sensor_data_by_name, name='get_sensor_data_by_name'),
+    path('api/get_product_ids/', views.get_product_ids, name='get_product_ids'),
+    path('api/get_product_details/<str:product_id>/', views.get_product_details, name='get_product_details'),
     # Matches any html file
     re_path(r'^.*\.html$', views.pages, name='pages'),
 ]
