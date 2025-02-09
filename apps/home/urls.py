@@ -16,6 +16,7 @@ urlpatterns = [
     # 獲取感測器數據
     path('get_sensors/', views.get_sensors, name='get_sensors'),
     path('get_sensor_data/<str:sensor_name>/', views.get_sensor_data, name='get_sensor_data'),
+    path('delete_sensor_data/<str:sensor_name>/', views.delete_sensor_data, name='delete_sensor_data'),
 
     #API介面
     path('api/get_counts/', views.get_counts, name='get_counts'),

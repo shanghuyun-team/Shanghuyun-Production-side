@@ -283,6 +283,11 @@ def get_sensor_data(request, sensor_name):
     return JsonResponse(response_data, safe=False)
 
 
+@login_required(login_url="/login/")
+def delete_sensor_data(request, sensor_name):
+    sensor = get_object_or_404(Sensor, name=sensor_name)
+    sensor.delete()
+    return JsonResponse({'status': 'success'})
 #-----------------API介面-----------------#
 
 def get_counts(request):
